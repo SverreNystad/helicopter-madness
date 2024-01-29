@@ -95,10 +95,16 @@ public class Helicopter {
     public void handleCrash(Helicopter other) {
         // Make helicopters not overlap
         int xIntersection = (int) (x + width - other.x);
+        int yIntersection = (int) (y + height - other.y);
         if (x < other.x) {
             x = other.x - xIntersection;
         } else {
             x = other.x + xIntersection;
+        }
+        if (y < other.y) {
+            y = other.y - yIntersection;
+        } else {
+            y = other.y + yIntersection;
         }
         
 
