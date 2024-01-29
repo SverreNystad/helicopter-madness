@@ -1,0 +1,2 @@
+# Helicopter Game
+Helicopter Game is a simple yet engaging 2D game developed using the LibGDX framework. It is designed as a series of exercises focusing on sprite manipulation, user input handling, animation, and basic collision detection.
