@@ -79,7 +79,6 @@ public class Helicopter {
                 0, 0, img.getWidth(), img.getHeight(), true, shallFlipY);
     }
 
-
     public float getX() {
         return x;
     }
@@ -88,5 +87,13 @@ public class Helicopter {
         return y;
     }
 
-
+    public boolean collidesWith(Helicopter other) {
+        return x < other.x + other.width && x + width > other.x &&
+               y < other.y + other.height && y + height > other.y;
+    }
+    
+    public void reverseVelocity() {
+        xVelocity = -xVelocity;
+        yVelocity = -yVelocity;
+    }
 }
