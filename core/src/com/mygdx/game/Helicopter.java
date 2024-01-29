@@ -73,11 +73,18 @@ public class Helicopter {
     public void render(SpriteBatch batch) {
         boolean shallFlipY = xVelocity < 0;
 
-        batch.begin();
         batch.draw(img, x, y, img.getWidth() / 2, img.getHeight() / 2, img.getWidth(), img.getHeight(), 1, 1,
                 rotation,
                 0, 0, img.getWidth(), img.getHeight(), true, shallFlipY);
-        batch.end();
+    }
+
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
     }
 
 
