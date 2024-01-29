@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -23,16 +25,46 @@ public class Helicopter {
 
 
     public void update(float deltaTime) {
+        handleInput();
         x += xVelocity * deltaTime;
         y += yVelocity * deltaTime;
+        
+        handleWorldCollision();
+        
+    }
 
-        // Check for collision with the screen edges
-        if (x < 0 || x > world.getWidth() - width) {
+    private void handleInput() {
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            xVelocity = (xVelocity < 0) ? xVelocity : -xVelocity;
+        } else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            xVelocity = (xVelocity > 0) ? xVelocity : -xVelocity;
+        } else if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            yVelocity = (yVelocity > 0) ? yVelocity : -yVelocity;
+        } else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            yVelocity = (yVelocity < 0) ? yVelocity : -yVelocity;
+        }
+    }
+
+    private void handleWorldCollision() {
+        if (x < 0) {
+            x = 0;
+        }
+        if (x > world.getWidth() - width) {
+            x = world.getWidth() - width;
+        }
+        if (y < 0) {
+            y = 0;
+        }
+        if (y > world.getHeight() - height) {
+            y = world.getHeight() - height;
+        }
+
+        if (x <= 0 || x >= world.getWidth() - width) {
             xVelocity = -xVelocity;
             rotation = xVelocity > 0 ? 0 : -180;
 
         }
-        if (y < 0 || y > world.getHeight() - height) {
+        if (y <= 0 || y >= world.getHeight() - height) {
             yVelocity = -yVelocity;
         }
     }
@@ -46,4 +78,6 @@ public class Helicopter {
                 0, 0, img.getWidth(), img.getHeight(), true, shallFlipY);
         batch.end();
     }
+
+
 }
