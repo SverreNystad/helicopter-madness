@@ -30,6 +30,22 @@ public class World {
         for (Helicopter helicopter : helicopters) {
             helicopter.update(deltaTime);
         }
+        // Check for collisions
+        for (int i = 0; i < helicopters.size; i++) {
+            for (int j = i + 1; j < helicopters.size; j++) {
+                Helicopter h1 = helicopters.get(i);
+                Helicopter h2 = helicopters.get(j);
+                if (h1.collidesWith(h2)) {
+                    handleCollision(h1, h2);
+                }
+            }
+        }
+    }
+
+    private void handleCollision(Helicopter h1, Helicopter h2) {
+        // Reverse the velocities of the helicopters to simulate a bounce
+        h1.reverseVelocity();
+        h2.reverseVelocity();
     }
 
     public void render() {
