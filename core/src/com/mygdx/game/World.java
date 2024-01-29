@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
@@ -10,7 +11,9 @@ public class World {
     private SpriteBatch batch;
     private float width, height;
     private Array<Helicopter> helicopters;
+
     private BitmapFont font;
+    private Texture background = new Texture("background.jpg");
    
 
     public World() {
@@ -51,6 +54,8 @@ public class World {
         update(Gdx.graphics.getDeltaTime());
         ScreenUtils.clear(1, 0, 0, 1);
         batch.begin();
+        // Draw background
+        batch.draw(background, 0, 0, width, height);
         for (Helicopter helicopter : helicopters) {
             helicopter.render(batch);
     
