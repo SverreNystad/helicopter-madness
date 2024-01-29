@@ -41,7 +41,9 @@ public class World {
     
             String positionText = "Position: (" + helicopter.getX() + ", " + helicopter.getY() + ")";
             // Drawing text at top-left corner
-            font.draw(batch, positionText, 10, Gdx.graphics.getHeight() - 10); 
+            int padding = 10;
+            
+            font.draw(batch, positionText, padding, Gdx.graphics.getHeight() - padding); 
         }
         batch.end();
    
