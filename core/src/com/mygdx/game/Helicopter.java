@@ -91,9 +91,21 @@ public class Helicopter {
         return x < other.x + other.width && x + width > other.x &&
                y < other.y + other.height && y + height > other.y;
     }
-    
-    public void reverseVelocity() {
+
+    public void handleCrash(Helicopter other) {
+        // Make helicopters not overlap
+        int xIntersection = (int) (x + width - other.x);
+        if (x < other.x) {
+            x = other.x - xIntersection;
+        } else {
+            x = other.x + xIntersection;
+        }
+        
+
+        // Reverse the velocities of the helicopters to simulate a bounce
         xVelocity = -xVelocity;
+        other.xVelocity = -other.xVelocity;
         yVelocity = -yVelocity;
+        other.yVelocity = -other.yVelocity;
     }
 }

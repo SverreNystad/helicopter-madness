@@ -44,8 +44,7 @@ public class World {
 
     private void handleCollision(Helicopter h1, Helicopter h2) {
         // Reverse the velocities of the helicopters to simulate a bounce
-        h1.reverseVelocity();
-        h2.reverseVelocity();
+        h1.handleCrash(h2);
     }
 
     public void render() {
