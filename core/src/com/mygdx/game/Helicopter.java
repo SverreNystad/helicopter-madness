@@ -43,6 +43,8 @@ public class Helicopter {
         } else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             yVelocity = (yVelocity < 0) ? yVelocity : -yVelocity;
         }
+        rotation = xVelocity > 0 ? 0 : -180;
+
     }
 
     private void handleWorldCollision() {
@@ -62,7 +64,6 @@ public class Helicopter {
         if (x <= 0 || x >= world.getWidth() - width) {
             xVelocity = -xVelocity;
             rotation = xVelocity > 0 ? 0 : -180;
-
         }
         if (y <= 0 || y >= world.getHeight() - height) {
             yVelocity = -yVelocity;
