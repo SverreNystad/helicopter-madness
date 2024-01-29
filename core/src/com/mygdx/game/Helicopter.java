@@ -9,7 +9,7 @@ public class Helicopter {
     private float x, y, xVelocity, yVelocity, rotation;
     private float width, height;
     private World world;
-    private Texture img;
+    private HelicopterAnimator animator;
 
     public Helicopter(World world, float x, float y, float xVelocity, float yVelocity) {
         this.world = world;
@@ -18,9 +18,10 @@ public class Helicopter {
         this.xVelocity = xVelocity;
         this.yVelocity = yVelocity;
         this.rotation = 0;
-        img = new Texture("heli1.png");
-        width = img.getWidth();
-        height = img.getHeight();
+        this.animator = new HelicopterAnimator(0.1f, true);
+
+        width = animator.getSprite().getWidth();
+        height = animator.getSprite().getHeight();
     }
 
 
@@ -30,7 +31,7 @@ public class Helicopter {
         y += yVelocity * deltaTime;
         
         handleWorldCollision();
-        
+        animator.update(deltaTime);
     }
 
     private void handleInput() {
@@ -72,7 +73,7 @@ public class Helicopter {
 
     public void render(SpriteBatch batch) {
         boolean shallFlipY = xVelocity < 0;
-
+        Texture img = animator.getSprite();
         batch.draw(img, x, y, img.getWidth() / 2, img.getHeight() / 2, img.getWidth(), img.getHeight(), 1, 1,
                 rotation,
                 0, 0, img.getWidth(), img.getHeight(), true, shallFlipY);
