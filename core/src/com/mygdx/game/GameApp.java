@@ -4,22 +4,21 @@ import com.badlogic.gdx.ApplicationAdapter;
 
 public class GameApp extends ApplicationAdapter {
     private World world;
-    private Helicopter helicopter;
-
+   
     @Override
     public void create() {
         world = new World();
-        helicopter = new Helicopter(world, 0, 0, 200, 200);
-        world.addHelicopter(helicopter);
+        Helicopter helicopter1 = new Helicopter(world, 0, 0, 200, 200);
+        Helicopter helicopter2 = new Helicopter(world, 150, 90, 200, 200);
+        Helicopter helicopter3 = new Helicopter(world, 0, 200, 200, 200);
+
+        world.addHelicopter(helicopter1);
+        world.addHelicopter(helicopter2);
+        world.addHelicopter(helicopter3);
     }
 
     @Override
     public void render() {
         world.render();
     }
-
-    private void update(float deltaTime) {
-        world.update(deltaTime);
-    }
-
 }
