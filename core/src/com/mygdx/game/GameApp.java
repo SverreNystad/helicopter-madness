@@ -2,7 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 
-public class MyGdxGame extends ApplicationAdapter {
+public class GameApp extends ApplicationAdapter {
     private World world;
     private Helicopter helicopter;
 
