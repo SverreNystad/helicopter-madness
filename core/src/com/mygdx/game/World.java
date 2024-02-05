@@ -14,15 +14,19 @@ public class World {
 
     private BitmapFont font;
     private Texture background = new Texture("background.jpg");
-   
+    private static World instance = new World();
 
-    public World() {
+    private World() {
         batch = new SpriteBatch();
         helicopters = new Array<Helicopter>();
         this.width = Gdx.graphics.getWidth();
         this.height = Gdx.graphics.getHeight();
 
         font = new BitmapFont();
+    }
+
+    public static World getInstance() {
+        return instance;
     }
 
     public void addHelicopter(Helicopter helicopter) {

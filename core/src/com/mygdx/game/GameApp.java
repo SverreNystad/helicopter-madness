@@ -7,7 +7,7 @@ public class GameApp extends ApplicationAdapter {
    
     @Override
     public void create() {
-        world = new World();
+        world = World.getInstance();
         Helicopter helicopter1 = new Helicopter(world, 0, 0, 200, 200);
         Helicopter helicopter2 = new Helicopter(world, 150, 90, 200, 200);
         Helicopter helicopter3 = new Helicopter(world, 0, 200, 200, 200);
