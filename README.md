@@ -4,3 +4,9 @@ Helicopter Madness is a simple 2D game developed using the LibGDX framework. It 
 
 The gameplay is simple: The player controls every helicopter on the screen at once. Crash them together or keep them apart, it's up to you.
 [![Image from Gyazo](https://i.gyazo.com/c8a2c23770e380bcdf68d1cf7aba0709.gif)](https://gyazo.com/c8a2c23770e380bcdf68d1cf7aba0709)
+
+## Usage
+To run the game, you need to have Java and Gradle installed. Then, you can run the following command in the root directory of the project:
+```cmd
+gradlew desktop:run
+```
