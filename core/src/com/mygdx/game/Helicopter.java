@@ -20,8 +20,8 @@ public class Helicopter {
         this.rotation = 0;
         this.animator = new HelicopterAnimator(0.1f, true);
 
-        width = animator.getSprite().getWidth();
-        height = animator.getSprite().getHeight();
+        width = animator.getWidth();
+        height = animator.getHeight();
     }
 
     /**

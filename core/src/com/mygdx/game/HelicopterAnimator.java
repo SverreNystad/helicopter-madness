@@ -43,6 +43,14 @@ public class HelicopterAnimator {
     public void update(float deltaTime) {
         currentTime += deltaTime;
     }
+    
+    public float getWidth() {
+        return getSprite().getWidth();
+    }
+
+    public float getHeight() {
+        return getSprite().getHeight();
+    }
 
     public void render(SpriteBatch batch, float x, float y, float xVelocity, float rotation) {
         boolean shallFlipY = xVelocity < 0;
@@ -53,7 +61,7 @@ public class HelicopterAnimator {
     }
 
     
-    public Texture getSprite() {
+    private Texture getSprite() {
         int index = (int) (currentTime / displayTime);
         if (index >= sprites.size) {
             if (shallLoop) {
@@ -64,4 +72,6 @@ public class HelicopterAnimator {
         }
         return sprites.get(index);
     }
+
+
 }
