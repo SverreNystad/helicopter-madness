@@ -24,7 +24,10 @@ public class Helicopter {
         height = animator.getSprite().getHeight();
     }
 
-
+    /**
+     * Takes care of updating the helicopter's position and handling input
+     * @param deltaTime
+     */
     public void update(float deltaTime) {
         handleInput();
         x += xVelocity * deltaTime;
@@ -72,11 +75,7 @@ public class Helicopter {
     }
 
     public void render(SpriteBatch batch) {
-        boolean shallFlipY = xVelocity < 0;
-        Texture img = animator.getSprite();
-        batch.draw(img, x, y, img.getWidth() / 2, img.getHeight() / 2, img.getWidth(), img.getHeight(), 1, 1,
-                rotation,
-                0, 0, img.getWidth(), img.getHeight(), true, shallFlipY);
+        animator.render(batch, x, y, xVelocity, rotation);
     }
 
     public float getX() {

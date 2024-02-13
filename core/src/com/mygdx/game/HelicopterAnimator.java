@@ -1,8 +1,14 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 
+/**
+ * This class is responsible for animating the helicopter.
+ * It is the View in the MVC pattern.
+ * To read more about the MVC pattern, visit https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
+ */
 public class HelicopterAnimator {
 
     private Array<Texture> sprites;
@@ -38,6 +44,14 @@ public class HelicopterAnimator {
         currentTime += deltaTime;
     }
 
+    public void render(SpriteBatch batch, float x, float y, float xVelocity, float rotation) {
+        boolean shallFlipY = xVelocity < 0;
+        Texture img = getSprite();
+        batch.draw(img, x, y, img.getWidth() / 2, img.getHeight() / 2, img.getWidth(), img.getHeight(), 1, 1,
+                rotation,
+                0, 0, img.getWidth(), img.getHeight(), true, shallFlipY);
+    }
+
     
     public Texture getSprite() {
         int index = (int) (currentTime / displayTime);
@@ -50,7 +64,4 @@ public class HelicopterAnimator {
         }
         return sprites.get(index);
     }
-
-    
-
 }
