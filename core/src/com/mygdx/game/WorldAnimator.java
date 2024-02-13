@@ -7,13 +7,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-public class WorldView {
+public class WorldAnimator {
     private SpriteBatch batch;
     private Texture background = new Texture("background.jpg");
     private float width, height;
     private BitmapFont font;
     
-    public WorldView() {
+    public WorldAnimator() {
         batch = new SpriteBatch();
         this.width = Gdx.graphics.getWidth();
         this.height = Gdx.graphics.getHeight();

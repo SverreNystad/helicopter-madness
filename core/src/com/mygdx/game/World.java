@@ -5,14 +5,14 @@ import com.badlogic.gdx.utils.Array;
 public class World {
     private float width, height;
     private Array<Helicopter> helicopters;
-    private WorldView view;
+    private WorldAnimator animator;
 
     private static World instance = new World();
 
     private World() {
-        view = new WorldView();
-        width = view.getWidth();
-        height = view.getHeight();
+        animator = new WorldAnimator();
+        width = animator.getWidth();
+        height = animator.getHeight();
         
         helicopters = new Array<Helicopter>();
     }
@@ -47,7 +47,7 @@ public class World {
     }
 
     public void render() {
-        view.render(helicopters);
+        animator.render(helicopters);
     }
 
     public float getWidth() {
