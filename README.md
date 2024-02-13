@@ -1,4 +1,14 @@
 # Helicopter Madness 
+<div align="center">
+
+![CI](https://img.shields.io/github/actions/workflow/status/SverreNystad/helicopter-madness/ci.yml)
+![CodeQL](https://img.shields.io/github/actions/workflow/status/SverreNystad/helicopter-madness/codeql.yml)
+![GitHub top language](https://img.shields.io/github/languages/top/SverreNystad/helicopter-madness)
+![GitHub language count](https://img.shields.io/github/languages/count/SverreNystad/helicopter-madness)
+[![Project Version](https://img.shields.io/badge/version-2.2-blue)](https://img.shields.io/badge/version-2.2-blue)
+
+</div>
+
 Helicopter Madness is a simple 2D game developed using the LibGDX framework. It is designed as a series of exercises focusing on sprite manipulation, user input handling, animation, and basic collision detection.
 ![Helicopter madness](/docs/images/helicopter-game.png)
 
@@ -52,7 +62,7 @@ Ensure that both Java and Gradle are properly installed and configured in your s
 ### Installing
 To install the project, you can use the following commands:
 ```cmd
-git clone https://github.com/SverreNystad/progark.git
+git clone https://github.com/SverreNystad/helicopter-madness.git
 ```
 
 ## How to Play
