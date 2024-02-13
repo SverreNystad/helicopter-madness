@@ -1,28 +1,20 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.ScreenUtils;
 
 public class World {
-    private SpriteBatch batch;
     private float width, height;
     private Array<Helicopter> helicopters;
+    private WorldView view;
 
-    private BitmapFont font;
-    private Texture background = new Texture("background.jpg");
     private static World instance = new World();
 
     private World() {
-        batch = new SpriteBatch();
+        view = new WorldView();
+        width = view.getWidth();
+        height = view.getHeight();
+        
         helicopters = new Array<Helicopter>();
-        this.width = Gdx.graphics.getWidth();
-        this.height = Gdx.graphics.getHeight();
-
-        font = new BitmapFont();
     }
 
     public static World getInstance() {
@@ -55,22 +47,7 @@ public class World {
     }
 
     public void render() {
-        update(Gdx.graphics.getDeltaTime());
-        ScreenUtils.clear(1, 0, 0, 1);
-        batch.begin();
-        // Draw background
-        batch.draw(background, 0, 0, width, height);
-        for (Helicopter helicopter : helicopters) {
-            helicopter.render(batch);
-    
-            String positionText = "Position: (" + helicopter.getX() + ", " + helicopter.getY() + ")";
-            // Drawing text at top-left corner
-            int padding = 10;
-            
-            font.draw(batch, positionText, padding, Gdx.graphics.getHeight() - padding); 
-        }
-        batch.end();
-   
+        view.render(helicopters);
     }
 
     public float getWidth() {

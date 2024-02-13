@@ -1,9 +1,11 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
 
 public class GameApp extends ApplicationAdapter {
     private World world;
+
    
     @Override
     public void create() {
@@ -19,6 +21,7 @@ public class GameApp extends ApplicationAdapter {
 
     @Override
     public void render() {
+        world.update(Gdx.graphics.getDeltaTime());
         world.render();
     }
 }
