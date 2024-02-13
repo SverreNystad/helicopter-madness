@@ -43,7 +43,7 @@ public class HelicopterAnimator {
     public void update(float deltaTime) {
         currentTime += deltaTime;
     }
-    
+
     public float getWidth() {
         return getSprite().getWidth();
     }
@@ -72,6 +72,4 @@ public class HelicopterAnimator {
         }
         return sprites.get(index);
     }
-
-
 }
